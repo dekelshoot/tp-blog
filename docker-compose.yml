@@ -1,0 +1,41 @@
+version: "3.5"
+services:
+  postsService:
+    image: postsimage
+    ports:
+      - "4000:4000"
+    networks:
+      - blog
+
+  commentsService:
+    image: commentsimage
+    ports:
+      - "4001:4001"
+    networks:
+      - blog
+
+  queryService:
+    image: queryimage
+    depends_on:
+      - event-busService
+    ports:
+      - "4002:4002"
+    networks:
+      - blog
+
+  moderationService:
+    image: moderationimage
+    ports:
+      - "4003:4003"
+    networks:
+      - blog
+
+  event-busService:
+    image: event-busimage
+    ports:
+      - "4005:4005"
+    networks:
+      - blog
+
+networks:
+  blog:
