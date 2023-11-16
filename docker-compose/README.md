@@ -15,7 +15,7 @@ Cette commande clonera le projet (devoir) dans un dossier appelé tp-blog.
 ## explication de la structure du projet
 
 Après avoir effectué les étapes précédentes, nous ouvrons le dossier tp-blog et nous aurons cette structure à l'intérieur :
-![structure du projet](/assets/1.png)
+![structure du projet](assets/1.png)
 
 Nous remarquons ici que nous avons 6 dossiers dont :
 
@@ -32,11 +32,11 @@ Pour créer les images de chaque services, rendez vouss dans chaque dossier des 
 
 expemple:
 
-![structure du projet](/assets/2.png)
+![structure du projet](assets/2.png)
 
 voici le le code de configuration de notre image dans le **Dockerfile**:
 
-![configuration du dockerfile](/assets/3.png)
+![configuration du dockerfile](assets/3.png)
 
     FROM node   //j'importe nodejs qui sera utilisé pour lancer le service
     WORKDIR /app    // je creer un espace de travail
@@ -71,7 +71,7 @@ En suite, nous allons créer 5 services.
 Alors nous devons modifier chaque fichier **index.js** de chaque dossier en modifiant l'expression localhost auquel il fait référence.
 
 Exemple pour **event_bus**:
-![modification de localhost pour les noms des services](/assets/4.png)
+![modification de localhost pour les noms des services](assets/4.png)
 
 > ici, j'ai remplacé les localhost par le nom des services auxquels ils faisaient référence
 > Nous avons fait la même chose pour chaque application nodejs
@@ -100,7 +100,7 @@ Rendez-vous /tp-blog et exécutez la commande suivante pour créer le dossier de
 
 Dans ce dossier, nous allons configurer le docker-compoose
 Exemple:
-![configuration du docker-compose](/assets/5.png)
+![configuration du docker-compose](assets/5.png)
 
     version: "3.5"  // représente la version du docker compose à utiliser
     services:       // ici je vais creer tous mes services
