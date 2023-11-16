@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: query-depl
+spec:
+  selector:
+    matchLabels:
+      app: app-query
+  template:
+    metadata:
+      labels:
+        app: app-query
+    spec:
+      containers:
+        - name: query
+          image: query-image
+          imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: query-service
+spec:
+  selector:
+    app: app-query
+  ports:
+    - name: query
+      protocol: TCP
+      port: 4002
+      targetPort: 4002

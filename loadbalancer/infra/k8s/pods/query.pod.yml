@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: query-pod
+  labels:
+    app: node
+    rel: alpine
+spec:
+  containers:
+    - name: queryi-container
+      image: queryimage
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+      ports:
+        - containerPort: 4002

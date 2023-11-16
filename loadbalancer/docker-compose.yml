@@ -1,0 +1,33 @@
+version: "3.5"
+services:
+  posts-service:
+    image: posts-image
+    build:
+      context: ./posts
+      dockerfile: Dockerfile
+
+  comments-service:
+    image: comments-image
+    build:
+      context: ./comments
+      dockerfile: Dockerfile
+
+  query-service:
+    image: query-image
+    depends_on:
+      - event-bus-service
+    build:
+      context: ./query
+      dockerfile: Dockerfile
+
+  moderation-service:
+    image: moderation-image
+    build:
+      context: ./moderation
+      dockerfile: Dockerfile
+
+  event-bus-service:
+    image: event-bus-image
+    build:
+      context: ./event-bus
+      dockerfile: Dockerfile

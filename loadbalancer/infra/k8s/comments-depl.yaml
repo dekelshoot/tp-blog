@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: comments-depl
+spec:
+  selector:
+    matchLabels:
+      app: app-comments
+  template:
+    metadata:
+      labels:
+        app: app-comments
+    spec:
+      containers:
+        - name: comments
+          image: comments-image
+          imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: comments-service
+spec:
+  selector:
+    app: app-comments
+  ports:
+    - name: comments
+      protocol: TCP
+      port: 4001
+      targetPort: 4001

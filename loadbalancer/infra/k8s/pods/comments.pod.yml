@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: comments-pod
+  labels:
+    app: node
+    rel: alpine
+spec:
+  containers:
+    - name: comments-container
+      image: comments-image
+      imagePullPolicy: Never
+      ports:
+        - containerPort: 4001
+      resources: {}

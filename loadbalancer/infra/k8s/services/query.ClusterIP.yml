@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  type: ClusterIP
+  selector:
+    app: query-node
+  ports:
+    - name: http
+      port: 4005
+      targetPort: 4005
